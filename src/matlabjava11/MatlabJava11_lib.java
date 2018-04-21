@@ -38,18 +38,19 @@ public class MatlabJava11_lib {
 			ml.eval("deepnet.Layers"); //このネットワークは 25 個の層で構成されています。学習可能な重みを持つ 8 個の層があり、そのうち 5 個がたたみ込み層で、3 個が全結合層です。
 			ml.eval("img1 = imread('img/dog01.jpg');"); 
 			ml.eval("imshow(img1)");
-			//ml.eval("pause(5);");
+			ml.eval("pause(5);");
 			ml.eval("sz = deepnet.Layers(1).InputSize"); //ネットワークの最初の層の InputSize プロパティを使用して、ネットワークの入力サイズを求めます。
 			ml.eval("img = imresize(img1,[227 227]);");
 			//ml.eval("imshow(img)");
-			//ml.eval("pause(5);");
+			ml.eval("pause(5);");
 			ml.eval("pred1 = classify(deepnet,img)");
 			ml.eval("categorynames = deepnet.Layers(end).ClassNames;");
 			ml.eval("[pred,scores] = classify(deepnet,img);");
 			ml.eval("highscores = scores > 0.01;");
 			ml.eval("bar(scores(highscores))");
 			ml.eval("xticklabels(categorynames(highscores))");
-			//ml.eval("pause(5);");
+			ml.eval("pause(5);");
+			ml.eval("saveas(gcf,'bar.png')");
 			ml.eval("hcategory = categorynames(highscores)");
 			ml.eval("hscore = scores(highscores)'");
 			
